@@ -45,23 +45,24 @@ run `make android-dev`
 Run `make desktop` or `make web` accordingly,
 which will generate the executable in `build/sdl-helloworld` once completed.
 
-<!--
-## Contributing
+## Development
+
+### (Optional) Set up linting tools
 
 This project uses [Cppcheck] and [Uncrustify]
 for static code analysis and formatting, respectively.
-After cloning the repository,
-add the following pre-commit hooks:
+
+The `uncrustify.cfg` file documents the currently enforced code style,
+but feel free to change the style however you like.
+
+A `make lint` command is provided to check that the code conforms to both tools,
+as well as a `make lint-fix` command to fix any errors found.
+
+You can also add the `make lint` command as a pre-commit hook:
 
 ```sh
-git clone --recurse-submodules https://github.com/edward-ly/sdl3-android-template
-cd sdl3-android-template
-cp .git/hooks/pre-commit{.sample,}
-echo '
-cppcheck --error-exitcode=1
-uncrustify -c uncrustify.cfg' >> .git/hooks/pre-commit
+echo 'make -s lint' >> .git/hooks/pre-commit
 ```
--->
 
 <!-- Links -->
 
@@ -74,5 +75,5 @@ uncrustify -c uncrustify.cfg' >> .git/hooks/pre-commit
 [CMake]: https://cmake.org/
 [Emscripten SDK]: https://emscripten.org/
 
-<!-- [Cppcheck]: https://cppcheck.sourceforge.io/ -->
-<!-- [Uncrustify]: https://uncrustify.sourceforge.net/ -->
+[Cppcheck]: https://cppcheck.sourceforge.io/
+[Uncrustify]: https://uncrustify.sourceforge.net/
